@@ -17,6 +17,6 @@ def do_pack():
     try:
         local("tar -cvzf versions/{}\
               ~/AirBnB_clone_v2/web_static".format(tgz_file))
-        return tgz_file
+        return "versions/{}".format(tgz_file)
     except:
         return None
