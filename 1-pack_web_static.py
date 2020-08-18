@@ -5,6 +5,9 @@ from datetime import datetime
 from fabric.api import *
 
 
+env.user = "ubuntu"
+
+
 def do_pack():
     """Compress web static folder into a tgz file"""
     local("mkdir -p versions")
