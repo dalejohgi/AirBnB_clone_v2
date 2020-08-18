@@ -25,6 +25,7 @@ def do_pack():
     except:
         return None
 
+
 def do_deploy(archive_path):
     """distributes an archive to your web servers"""
     if exists(archive_path):
@@ -36,7 +37,9 @@ def do_deploy(archive_path):
             run('mkdir -p {}'.format(archive_folder))
             run('tar -xvzf /tmp/{} -C {}'.format(tgz_file, archive_folder))
             run('rm /tmp/{}'.format(tgz_file))
-            run('rm /data/web_static/current')
+            run('mv {}web_static/* {}'.format(archive_folder, archive_folder))
+            run('rm -rf {}web_static'.format(archive_folder))
+            run('rm -rf /data/web_static/current')
             run('ln -s {} /data/web_static/current'.format(archive_folder))
             return True
         except:
