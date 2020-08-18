@@ -50,9 +50,8 @@ def do_deploy(archive_path):
 
 def deploy():
     """creates and distributes an archive to web servers."""
-    path = do_pack()
+    archive_path = do_pack()
     if path is None:
         return False
-    else:
-        value = do_deploy(path)
-        return value
+    value = do_deploy(archive_path)
+    return value
