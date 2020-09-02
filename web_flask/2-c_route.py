@@ -8,18 +8,21 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_world():
-    return 'Hello HBNB!'
+        """Displays the return message"""
+        return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    return 'HBNB'
+        """Displays the return message"""
+        return 'HBNB'
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def cisfun(text=None):
+        """Displays the return message"""
         string = text.replace('_', ' ')
-        return 'c {}'.format(string)
+        return 'C {}'.format(string)
 
 if __name__ == '__main__':
         app.run(host='0.0.0.0', port='5000', debug=True)
